@@ -21,6 +21,7 @@ export class TerminalEmulator {
 			var keyCode = e.code;
 			console.log(keyCode);
 
+			//Iterates downwards through commandList
 			if (keyCode == "ArrowUp") {
 				if (this.currentListIndex != 0) {
 					this.commandList.push(document.getElementById("inputField").value);
@@ -30,6 +31,7 @@ export class TerminalEmulator {
 				}
 			}
 
+			//Iterates upwards through commandList
 			if (keyCode == "ArrowDown") {
 				if (this.currentListIndex <= this.commandList.length) {
 					this.currentListIndex++;
