@@ -4,3 +4,4 @@ let emulator = new TerminalEmulator();
 
 //Setting text inside input field
 emulator.init();
+console.log("test");
