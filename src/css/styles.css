@@ -18,7 +18,7 @@ body {
 	box-sizing: border-box;
 	text-align: left;
 }
-.terminal_emulator_output {
+.terminal_emulator_input {
 	display: inline-flex;
 }
 #inputField {
@@ -29,7 +29,7 @@ body {
 	-moz-box-shadow: none;
 	box-shadow: none;
 	color: aqua;
-	width: 100px;
+	width: 500px;
 	font-size: 16pt;
 	cursor: default;
 }
