@@ -1,21 +1,47 @@
 import { OutputParser } from "../TerminalEmulator/OutputParser.js";
+
+/**
+ * TODO:
+ * [x] arrow key functionality
+ */
 export class TerminalEmulator {
 	constructor() {
-		this.commandPrefix = "visitor@user:~$";
+		this.commandPrefix = "visitor@DESKTOP-IGM26G7:~$";
 		this.inputText = "";
 		this.outputText = "";
+		this.commandList = []; //used for previous commands
+		this.currentListIndex = 0;
 	}
 
 	init() {
 		document.getElementById("terminal_emulator_input_input_text").innerHTML =
 			this.commandPrefix;
 		document.getElementById("inputField").focus();
-		document.addEventListener("keypress", (e) => {
+		document.addEventListener("keydown", (e) => {
 			var keyCode = e.code;
+			console.log(keyCode);
+
+			if (keyCode == "ArrowUp") {
+				if (this.currentListIndex != 0) {
+					this.commandList.push(document.getElementById("inputField").value);
+					this.currentListIndex--;
+					document.getElementById("inputField").value =
+						this.commandList[this.currentListIndex];
+				}
+			}
+
+			if (keyCode == "ArrowDown") {
+				if (this.currentListIndex <= this.commandList.length) {
+					this.currentListIndex++;
+					document.getElementById("inputField").value =
+						this.commandList[this.currentListIndex];
+				}
+			}
 
 			if (keyCode == "Enter") {
-				console.log("Enter pressed!");
 				this.inputText = document.getElementById("inputField").value;
+				this.commandList.push(this.inputText);
+				this.currentListIndex = this.commandList.length;
 
 				let parser = new OutputParser();
 				this.setOutputText(parser.generateOutput(this.inputText));

@@ -27,6 +27,8 @@ export class OutputParser {
 				return (
 					command +
 					"<br>" +
+					"GNU bash, version 1.0.0(1)-release (x86_64-pc-visitor)" +
+					"<br><br>" +
 					"whoami - A brief description of myself." +
 					"<br>" +
 					"projects - showcase of my projects" +
