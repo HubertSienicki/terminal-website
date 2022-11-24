@@ -20,6 +20,10 @@ body {
 }
 .terminal_emulator_input {
 	display: inline-flex;
+	font-size: 16pt;
+}
+.terminal_emulator_output {
+	font-size: 16pt;
 }
 #inputField {
 	background-color: transparent;
