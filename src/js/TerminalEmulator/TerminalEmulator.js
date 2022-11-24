@@ -24,6 +24,7 @@ export class TerminalEmulator {
 			if (keyCode == "ArrowUp") {
 				if (this.currentListIndex != 0) {
 					this.commandList.push(document.getElementById("inputField").value);
+
 					this.currentListIndex--;
 					document.getElementById("inputField").value =
 						this.commandList[this.currentListIndex];
