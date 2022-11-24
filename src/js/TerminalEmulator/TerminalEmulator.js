@@ -19,7 +19,6 @@ export class TerminalEmulator {
 		document.getElementById("inputField").focus();
 		document.addEventListener("keydown", (e) => {
 			var keyCode = e.code;
-			console.log(keyCode);
 
 			//Iterates downwards through commandList
 			if (keyCode == "ArrowUp") {
