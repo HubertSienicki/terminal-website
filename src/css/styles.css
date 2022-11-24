@@ -37,3 +37,14 @@ body {
 	font-size: 16pt;
 	cursor: default;
 }
+
+a:link {
+	color: aqua;
+	background-color: transparent;
+	text-decoration: underline;
+}
+a:visited {
+	color: aqua;
+	background-color: transparent;
+	text-decoration: underline;
+}
