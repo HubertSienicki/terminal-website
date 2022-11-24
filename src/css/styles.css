@@ -18,7 +18,7 @@ body {
 	box-sizing: border-box;
 	text-align: left;
 }
-.terminal_emulator_input {
+.terminal_emulator_output {
 	display: inline-flex;
 }
 #inputField {
