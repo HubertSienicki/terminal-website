@@ -7,19 +7,22 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title></title>
+		<title>Terminal</title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="" />
+		<link rel="stylesheet" href="../css/styles.css" />
 	</head>
 	<body>
-		<!--[if lt IE 7]>
-			<p class="browsehappy">
-				You are using an <strong>outdated</strong> browser. Please
-				<a href="#">upgrade your browser</a> to improve your experience.
-			</p>
-		<![endif]-->
-
-		<script src="" async defer></script>
+		<div class="terminal_emulator" , id="terminal_emulator">
+			<div class="terminal_emulator_input" , id="terminal_emulator_input">
+				<div id="text"></div>
+				<input type="text" id="inputField" />
+			</div>
+		</div>
 	</body>
+	<script type="module" src="/src/js/main.js"></script>
+	<script
+		type="module"
+		src="/src/js/TerminalEmulator/TerminalEmulator.js"
+	></script>
 </html>
