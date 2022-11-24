@@ -28,11 +28,19 @@ export class TerminalEmulator {
 	 * @param outputText - text to print from the terminal
 	 */
 	setOutputText(outputText) {
-		this.outputText = this.commandPrefix + outputText;
+		if (outputText == "clear") {
+			this.outputText = "";
 
-		document.getElementById("terminal_emulator_output").innerHTML +=
-			this.outputText + "<br><br>";
+			document.getElementById("terminal_emulator_output").innerHTML = "";
 
-		document.getElementById("inputField").value = "";
+			document.getElementById("inputField").value = "";
+		} else {
+			this.outputText = this.commandPrefix + outputText;
+
+			document.getElementById("terminal_emulator_output").innerHTML +=
+				this.outputText + "<br><br>";
+
+			document.getElementById("inputField").value = "";
+		}
 	}
 }

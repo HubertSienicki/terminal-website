@@ -6,6 +6,7 @@
  * [x] Github command
  * [x] Linkedin command
  * [] neofetch command
+ * [x] clear command
  */
 export class OutputParser {
 	/**
@@ -38,6 +39,8 @@ export class OutputParser {
 				);
 			case "projects":
 				return command + "<br>" + " projects - showcase of my projects";
+			case "clear":
+				return command;
 
 			case "banner":
 				return command + "<br>" + this.banner;
