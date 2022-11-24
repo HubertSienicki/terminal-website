@@ -6,5 +6,14 @@ export class TerminalEmulator {
 
 	init() {
 		document.getElementById("text").innerHTML = this.defaultText;
+		document.getElementById("inputField").focus();
+		document.addEventListener("keypress", (e) => {
+			var keyName = e.key;
+			var keyCode = e.code;
+
+			if (keyCode == "Enter") {
+				console.log("Enter pressed!");
+			}
+		});
 	}
 }
