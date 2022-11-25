@@ -1,1 +1,3 @@
-this.options = {};
+this.options = {
+	method: "GET",
+};
