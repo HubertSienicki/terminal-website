@@ -10,10 +10,9 @@ export class GeocodingApi {
 			apiKey: "&appid=732c23c7913854427816b18a0f459051",
 		};
 		this.apiData = null;
-		this.apiData = null;
 		this.xhr = new XMLHttpRequest();
 		this.xhr.withCredentials = false;
-		this.data = [];
+		this.data = null;
 	}
 
 	/**
@@ -22,15 +21,19 @@ export class GeocodingApi {
 	 * @returns table of latitute and logitude
 	 */
 	call(city) {
-		this.xhr.open(
-			this.geocodingOptions.method,
+		const callUrl =
 			this.geocodingOptions.url +
-				city +
-				this.geocodingOptions.limit +
-				this.geocodingOptions.apiKey
+			city +
+			this.geocodingOptions.limit +
+			this.geocodingOptions.apiKey;
+
+		this.xhr.open(
+			//opens an api call
+			this.geocodingOptions.method,
+			callUrl
 		);
 
-		this.xhr.send();
+		this.xhr.send(); //sends a call
 
 		var promise = new Promise((resolve) => {
 			this.xhr.addEventListener("readystatechange", function getApiData() {
@@ -42,10 +45,7 @@ export class GeocodingApi {
 
 		promise.then((resolve) => {
 			this.apiData = resolve;
-			this.data.push(this.apiData[0]["lat"]);
-			this.data.push(this.apiData[0]["lon"]);
+			console.log(this.apiData[0]["lat"], this.apiData[0]["lon"]);
 		});
-
-		return this.data;
 	}
 }

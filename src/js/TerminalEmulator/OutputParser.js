@@ -1,5 +1,6 @@
 //
 import { GeocodingApi } from "../API/GeocodingApi.js";
+import { WeatherApi } from "../API/WeatherApi.js";
 /**
  * TODO:
  * [] Project showcase command
@@ -17,8 +18,6 @@ export class OutputParser {
 	 * Parser made for generating output message of the terminal
 	 */
 	constructor() {
-		this.geoApi = new GeocodingApi();
-
 		this.deviceInformation = [];
 		this.neofetchInfo = [
 			"Host: hubertsienicki.github.io ",
@@ -80,7 +79,7 @@ export class OutputParser {
 	 * @param command - a command passed to the terminal
 	 * @returns generated message of the terminal
 	 */
-	generateOutput(command) {
+	async generateOutput(command) {
 		switch (command) {
 			case "help":
 				return (
@@ -134,7 +133,16 @@ export class OutputParser {
 				return command + "<br>" + this.neofetchBanner;
 
 			case "weather":
-				this.apiData = this.geoApi.call("Warsaw");
+				const geoApi = new GeocodingApi();
+				const weatherApi = new WeatherApi();
+				let weatherData = null;
+
+				this.weatherInformation = " ";
+
+				geoApi.call("Warsaw");
+
+				weatherData = weatherApi.call(52.2319581, 21.0067249);
+
 				return command + "<br>";
 
 			default:
