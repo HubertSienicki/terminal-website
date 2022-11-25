@@ -42,11 +42,14 @@ export class TerminalEmulator {
 
 			if (keyCode == "Enter") {
 				this.inputText = document.getElementById("inputField").value;
+
 				this.commandList.push(this.inputText);
 				this.currentListIndex = this.commandList.length;
 
 				let parser = new OutputParser();
-				this.setOutputText(parser.generateOutput(this.inputText));
+				this.setOutputText(
+					parser.generateOutput(this.inputText.toLocaleLowerCase())
+				);
 			}
 		});
 	}

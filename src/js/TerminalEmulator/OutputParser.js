@@ -1,18 +1,24 @@
+//
+import { GeocodingApi } from "../API/GeocodingApi.js";
 /**
  * TODO:
- * [] A funny writing animation for whoami command
  * [] Project showcase command
  * [x] Banner command (?)
  * [x] Github command
  * [x] Linkedin command
  * [x] neofetch command
  * [x] clear command
+ * [] api call for geocoding
+ * [] api call for weatherapi
  */
+
 export class OutputParser {
 	/**
 	 * Parser made for generating output message of the terminal
 	 */
 	constructor() {
+		this.geoApi = new GeocodingApi();
+
 		this.deviceInformation = [];
 		this.neofetchInfo = [
 			"Host: hubertsienicki.github.io ",
@@ -90,10 +96,14 @@ export class OutputParser {
 					"<br>" +
 					"github - Github link" +
 					"<br>" +
-					"linkedin - LinkedIn link "
+					"linkedin - LinkedIn link " +
+					"<br>" +
+					"neofetch - system information"
 				);
+
 			case "projects":
 				return command + "<br>" + " projects - showcase of my projects";
+
 			case "clear":
 				return command;
 
@@ -122,6 +132,11 @@ export class OutputParser {
 
 			case "neofetch":
 				return command + "<br>" + this.neofetchBanner;
+
+			case "weather":
+				this.apiData = this.geoApi.call("Warsaw");
+				return command + "<br>";
+
 			default:
 				return (
 					command +
