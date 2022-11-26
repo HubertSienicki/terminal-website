@@ -79,7 +79,7 @@ export class OutputParser {
 	 * @param command - a command passed to the terminal
 	 * @returns generated message of the terminal
 	 */
-	async generateOutput(command) {
+	generateOutput(command) {
 		switch (command) {
 			case "help":
 				return (
